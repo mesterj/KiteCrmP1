@@ -19,5 +19,19 @@ public class Beosztas extends BaseModel {
     @Column
     String beosztas;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getBeosztas() {
+        return beosztas;
+    }
+
+    public void setBeosztas(String beosztas) {
+        this.beosztas = beosztas;
+    }
 }

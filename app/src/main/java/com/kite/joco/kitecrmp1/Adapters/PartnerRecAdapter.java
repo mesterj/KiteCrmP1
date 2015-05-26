@@ -2,23 +2,35 @@ package com.kite.joco.kitecrmp1.Adapters;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kite.joco.kitecrmp1.R;
+import com.kite.joco.kitecrmp1.db.entites.Contact;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
 import com.kite.joco.kitecrmp1.db.entites.Partner$Table;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Joco on 2015.05.25..
  */
 public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.PartnerViewHolder> {
 
+    List<Partner> psData;
+    public static final String TAG="ADAPTER";
+
+    public PartnerRecAdapter(List<Partner> psData){
+        this.psData = psData;
+    }
 
     @Override
     public PartnerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,12 +45,34 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
 
     @Override
     public void onBindViewHolder(PartnerViewHolder holder, int position) {
+        Partner aktPartner = psData.get(position);
+        Log.i(TAG,"Akt partner neve: " + aktPartner.getNev());
 
+        holder.tvPartnerNev.setText(aktPartner.getNev().toString());
+       // Log.i(TAG,"psData mérete" + psData.size());
+
+
+        ArrayList<Contact> contacts = null;
+        contacts = new Select().from(Contact.class).where(Condition.column(Partner).is())psData.get(position).getKapcsolatok();
+        if (contacts != null || contacts.size()==0 ) {
+            Log.i(TAG, "Ennyi elemből áll a contact lista: " + contacts.size());
+            int i = contacts.size();
+            Contact item_contact = contacts.get(i);
+            String kapcsnev = item_contact.getContact_vezeteknev() + " " + item_contact.getContact_keresztnev();
+            holder.tvKapcsolatNev.setText(kapcsnev);
+            holder.btnEmail.setClickable(true);
+            holder.btnHivas.setClickable(true);
+        }
+        else {
+            holder.tvKapcsolatNev.setText("Nincs rögzítve kapcsolat");
+            holder.btnEmail.setClickable(false);
+            holder.btnHivas.setClickable(false);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return psData.size();
     }
 
     public static class PartnerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -68,15 +102,19 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
             switch (v.getId()) {
                 case (R.id.btnEmail):
                    // sendmail();
+                    Toast.makeText(v.getContext(),"Email küldés lesz",Toast.LENGTH_LONG).show();
                     break;
                 case (R.id.btnHivas):
-                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    //Intent callIntent = new Intent(Intent.ACTION_CALL);
                     //callIntent.setData();
-                    v.getContext().startActivity(callIntent);
+                    //v.getContext().startActivity(callIntent);
+                    Toast.makeText(v.getContext(),"Hívás lesz",Toast.LENGTH_LONG).show();
                     break;
                 case (R.id.tvEKapcsNev):
+                    Toast.makeText(v.getContext(),"Kapcsolat",Toast.LENGTH_LONG).show();
                     break;
                 case (R.id.tvPartnernev):
+                    Toast.makeText(v.getContext(),"Partner név",Toast.LENGTH_LONG).show();
                     break;
 
                 default:

@@ -43,7 +43,7 @@ public class Contact extends BaseModel{
                     columnType = Long.class,
                     foreignColumnName = "id")},
             saveForeignKeyModel = false)
-    Beosztas besztas;
+    Beosztas beosztas;
 
     @Column
     @ForeignKey(
@@ -64,6 +64,66 @@ public class Contact extends BaseModel{
                     .queryList();
         }
         return elerhetosegList;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContact_vezeteknev() {
+        return contact_vezeteknev;
+    }
+
+    public void setContact_vezeteknev(String contact_vezeteknev) {
+        this.contact_vezeteknev = contact_vezeteknev;
+    }
+
+    public String getContact_keresztnev() {
+        return contact_keresztnev;
+    }
+
+    public void setContact_keresztnev(String contact_keresztnev) {
+        this.contact_keresztnev = contact_keresztnev;
+    }
+
+    public String getContact_titulus() {
+        return contact_titulus;
+    }
+
+    public void setContact_titulus(String contact_titulus) {
+        this.contact_titulus = contact_titulus;
+    }
+
+    public String getContact_kozepsonev() {
+        return contact_kozepsonev;
+    }
+
+    public void setContact_kozepsonev(String contact_kozepsonev) {
+        this.contact_kozepsonev = contact_kozepsonev;
+    }
+
+    public Beosztas getBeosztas() {
+        return beosztas;
+    }
+
+    public void setBeosztas(Beosztas beosztas) {
+        this.beosztas = beosztas;
+    }
+
+    public Partner getPartner() {
+        return partner;
+    }
+
+    public void setPartner(Partner partner) {
+        this.partner = partner;
+    }
+
+    public void setElerhetosegList(List<Elerhetoseg> elerhetosegList) {
+        this.elerhetosegList = elerhetosegList;
     }
 }
 
