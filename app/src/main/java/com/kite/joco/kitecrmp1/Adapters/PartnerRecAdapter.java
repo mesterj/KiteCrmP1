@@ -53,7 +53,7 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
 
 
         ArrayList<Contact> contacts = null;
-        contacts = new Select().from(Contact.class).where(Condition.column(Partner).is())psData.get(position).getKapcsolatok();
+      //  contacts = new Select().from(Contact.class).where(Condition.column(Partner).is())psData.get(position).getKapcsolatok();
         if (contacts != null || contacts.size()==0 ) {
             Log.i(TAG, "Ennyi elemből áll a contact lista: " + contacts.size());
             int i = contacts.size();
