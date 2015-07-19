@@ -34,17 +34,6 @@ public class Partner extends BaseModel {
 
     List<Contact> kapcsolatok;
 
-    /*
-    @OneToMany(methods = OneToMany.Method.ALL)
-    public List<Elerhetoseg> getElerhetosegList() {
-        if (elerhetosegList == null) {
-            elerhetosegList = new Select().from(Elerhetoseg.class)
-                    .where(Condition.column(Elerhetoseg$Table.CONTACT_ID_CONTACT_ID).is(id))
-                    .queryList();
-        }
-        return elerhetosegList;
-    }
-     */
 
     @OneToMany(methods = OneToMany.Method.ALL)
     public List<Contact> getKapcsolatok() {
@@ -54,6 +43,10 @@ public class Partner extends BaseModel {
                     .queryList();
         }
         return kapcsolatok;
+    }
+
+    public void setKapcsolatok(List<Contact> kapcsolatok) {
+        this.kapcsolatok = kapcsolatok;
     }
 
     public Long getId() {

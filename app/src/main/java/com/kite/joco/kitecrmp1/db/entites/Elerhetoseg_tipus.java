@@ -18,4 +18,20 @@ public class Elerhetoseg_tipus extends BaseModel{
 
     @Column
     String tipus;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
+    }
 }
