@@ -5,8 +5,9 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Adapters/PartnerRecAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/CrmMainActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/activities/UgyfelActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/db/CrmDatabase.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/db/entites/Partner.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/build.gradle" charset="UTF-8" />
-    <file url="PROJECT" charset="windows-1250" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
