@@ -87,7 +87,7 @@ public class CrmMainActivity extends Activity {
         eemail.setTipus(etipemail);
 
         Contact c = new Contact();
-        c.setBeosztas(b);
+
         c.setContact_vezeteknev("Budai");
         c.setContact_keresztnev("Csaba");
         ArrayList<Elerhetoseg> addeler = new ArrayList<Elerhetoseg>();
@@ -105,7 +105,7 @@ public class CrmMainActivity extends Activity {
         p.setTelepules("Nádudvar");
         p.setUtca("Bem J. u. 1-3");
         p.save();
-        c.setPartner(p);
+
         c.save();
         Log.i(TAG,"Data load finished");
     }

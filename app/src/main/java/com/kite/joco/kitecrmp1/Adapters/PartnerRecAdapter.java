@@ -26,7 +26,7 @@ import java.util.List;
 public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.PartnerViewHolder> {
 
     List<Partner> psData;
-    public static final String TAG="ADAPTER";
+    public static final String TAG="KITECRMP1_ADAPTER";
 
     public PartnerRecAdapter(List<Partner> psData){
         this.psData = psData;
@@ -46,32 +46,36 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
     @Override
     public void onBindViewHolder(PartnerViewHolder holder, int position) {
         Partner aktPartner = psData.get(position);
-        Log.i(TAG,"Akt partner neve: " + aktPartner.getNev());
+        Log.i(TAG, "Akt partner neve: " + aktPartner.getNev());
 
         holder.tvPartnerNev.setText(aktPartner.getNev().toString());
        // Log.i(TAG,"psData mérete" + psData.size());
 
-
-        ArrayList<Contact> contacts = null;
-      //  contacts = new Select().from(Contact.class).where(Condition.column(Partner).is())psData.get(position).getKapcsolatok();
-        if (contacts != null || contacts.size()==0 ) {
-            Log.i(TAG, "Ennyi elemből áll a contact lista: " + contacts.size());
-            int i = contacts.size();
-            Contact item_contact = contacts.get(i);
-            String kapcsnev = item_contact.getContact_vezeteknev() + " " + item_contact.getContact_keresztnev();
-            holder.tvKapcsolatNev.setText(kapcsnev);
-            holder.btnEmail.setClickable(true);
-            holder.btnHivas.setClickable(true);
+        try {
+            List<Contact> contacts = new Select().from(Contact.class).where(Condition.column("partner_id").is(aktPartner.getId())).queryList();
+            if (contacts.size() == 0 ) {
+                Log.i(TAG, "Ennyi elemből áll a contact lista: " + contacts.size());
+                int i = contacts.size();
+                Contact item_contact = contacts.get(i);
+                String kapcsnev = item_contact.getContact_vezeteknev() + " " + item_contact.getContact_keresztnev();
+                holder.tvKapcsolatNev.setText(kapcsnev);
+                holder.btnEmail.setClickable(true);
+                holder.btnHivas.setClickable(true);
+            } else {
+                Log.d(TAG,"Nincs rögzítve kapcsolat");
+                holder.tvKapcsolatNev.setText("Nincs rögzítve kapcsolat");
+                holder.btnEmail.setClickable(false);
+                holder.btnHivas.setClickable(false);
+            }
         }
-        else {
-            holder.tvKapcsolatNev.setText("Nincs rögzítve kapcsolat");
-            holder.btnEmail.setClickable(false);
-            holder.btnHivas.setClickable(false);
+        catch (Exception ex){
+            Log.d(TAG,ex.getLocalizedMessage());
         }
     }
 
     @Override
     public int getItemCount() {
+        Log.d(TAG," PSDATA mérete: "+psData.size());
         return psData.size();
     }
 

@@ -4,9 +4,9 @@
     <file url="file://$PROJECT_DIR$/app/build.gradle" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Adapters/PartnerRecAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/CrmMainActivity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Receivers/CallEndReceiver.java" charset="windows-1250" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Receivers/CustomPhoneStateListener.java" charset="windows-1250" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Receivers/OutgoingCallReceiver.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Receivers/CallEndReceiver.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Receivers/CustomPhoneStateListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/Receivers/OutgoingCallReceiver.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/activities/UgyfelActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/db/CrmDatabase.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/kite/joco/kitecrmp1/db/entites/Partner.java" charset="UTF-8" />

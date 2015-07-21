@@ -11,7 +11,7 @@ import android.util.Log;
  */
 public class OutgoingCallReceiver extends BroadcastReceiver {
 
-    private static final String TAG="KITECRMDEMO";
+    private static final String TAG="KITECRMP1";
     final String sharedprefile = "CALLLOGPREF";
 
     @Override
@@ -25,18 +25,18 @@ public class OutgoingCallReceiver extends BroadcastReceiver {
 
         //Toast.makeText(context, "Outgoing call catched!: " + phoneNumber, Toast.LENGTH_LONG).show();
 
-        // El kell menteni az app saját sharedpreferences filéjébe. Ha már van ilyen érték benn azt ki kell törölni, vagy törljem az egész sharedprefs-t?
-        // Egy érték törlése: SharedPreferenes.Editor.remove(KEY) commit()-nak kell követnie
-        // Egész tartalom törlése: SharedPreferences.Editor.clear() commit itt is kell.
+        // El kell menteni az app sajÃ¡t sharedpreferences filÃ©jÃ©be. Ha mÃ¡r van ilyen Ã©rtÃ©k benn azt ki kell tÃ¶rÃ¶lni, vagy tÃ¶rljem az egÃ©sz sharedprefs-t?
+        // Egy Ã©rtÃ©k tÃ¶rlÃ©se: SharedPreferenes.Editor.remove(KEY) commit()-nak kell kÃ¶vetnie
+        // EgÃ©sz tartalom tÃ¶rlÃ©se: SharedPreferences.Editor.clear() commit itt is kell.
 
         /*
-        A folyamat: Hívást índít a user a telefonon. Ha az alkalmazásból indította, akkor a hívott kapcsolat már megvan, azt nem kell keresni.
-        Az egész keresés történettel nem kell foglalkozni. Mindent lehet törölni és kilépni. A hívás végét figyelõ receivernek kell jelezni, hogy melyik partnerrel indítsa a memót.
+        A folyamat: HÃ­vÃ¡st Ã­ndÃ­t a user a telefonon. Ha az alkalmazÃ¡sbÃ³l indÃ­totta, akkor a hÃ­vott kapcsolat mÃ¡r megvan, azt nem kell keresni.
+        Az egÃ©sz keresÃ©s tÃ¶rtÃ©nettel nem kell foglalkozni. Mindent lehet tÃ¶rÃ¶lni Ã©s kilÃ©pni. A hÃ­vÃ¡s vÃ©gÃ©t figyelÅ‘ receivernek kell jelezni, hogy melyik partnerrel indÃ­tsa a memÃ³t.
 
-        Ha nem a programból indul akkor a számot el kell rakni és keresését indítani az adatbázisban. Ha nincs meg a szám akkor új kontakt és utána új memó.
-        Ha megvan a szám tulajdonosa akkor csak új memó
+        Ha nem a programbÃ³l indul akkor a szÃ¡mot el kell rakni Ã©s keresÃ©sÃ©t indÃ­tani az adatbÃ¡zisban. Ha nincs meg a szÃ¡m akkor Ãºj kontakt Ã©s utÃ¡na Ãºj memÃ³.
+        Ha megvan a szÃ¡m tulajdonosa akkor csak Ãºj memÃ³
 
-        A hívás végét figyelõ programnak a memó vagy newcontact intent hívás elõtt ki kell törölnie a sharedprefs-t.
+        A hÃ­vÃ¡s vÃ©gÃ©t figyelÅ‘ programnak a memÃ³ vagy newcontact intent hÃ­vÃ¡s elÅ‘tt ki kell tÃ¶rÃ¶lnie a sharedprefs-t.
 
          */
 

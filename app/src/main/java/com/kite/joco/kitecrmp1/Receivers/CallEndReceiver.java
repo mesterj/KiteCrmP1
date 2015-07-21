@@ -18,7 +18,7 @@ public class CallEndReceiver extends BroadcastReceiver {
     String filename = "CallerNum";
     SharedPreferences callinglogpref;
     final String sharedprefile = "CALLLOGPREF";
-    final String TAG = "KITECRMDEMO";
+    final String TAG = "KITECRMP1";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -46,13 +46,13 @@ public class CallEndReceiver extends BroadcastReceiver {
 
         String stateval = bundle.getString("state");
 
-        // A hÌv·s vÈgÈnek figyelÈse
-        // ha a hÌv·s befejezıdik Ès mÈg nem volt ilyen sz·mmal senki a telefonkˆnyvben akkor elıszˆr az ˙j kapcsolat felvitlÈhez valÛ kÈpernyı indul el, benne a telefonsz·mmal.
+        // A h√≠v√°s v√©g√©nek figyel√©se
+        // ha a h√≠v√°s befejez≈ëdik √©s m√©g nem volt ilyen sz√°mmal senki a telefonk√∂nyvben akkor el≈ësz√∂r az √∫j kapcsolat felvitl√©hez val√≥ k√©perny≈ë indul el, benne a telefonsz√°mmal.
 
         if (stateval != null && stateval.equals("IDLE")) {
             Log.i(TAG, "CALL ENDED");
             Log.i(TAG, stateval);
-            Log.i(TAG, "Most kellene hÌvni az activityt!");
+            Log.i(TAG, "Most kellene h√≠vni az activityt!");
             Log.i(TAG, "callerNumber value is " + callerNumber);
             Log.i(TAG, " called number value is_: " + calledNumber);
             if (!callerNumber.equals("")) {
@@ -73,9 +73,9 @@ public class CallEndReceiver extends BroadcastReceiver {
             }
         }
 
-        // Toast.makeText(context, "A hÌvott sz·m : " + calledNumber, Toast.LENGTH_LONG).show();
+        // Toast.makeText(context, "A h√≠vott sz√°m : " + calledNumber, Toast.LENGTH_LONG).show();
         // intent for create new memo
-        // Ez a rÈsz akkor kell ha minket hÌvnak.
+        // Ez a r√©sz akkor kell ha minket h√≠vnak.
 
 
     else if(stateval!=null&&stateval.equals("RINGING"))
@@ -84,16 +84,16 @@ public class CallEndReceiver extends BroadcastReceiver {
         Log.i(TAG, " CALL_STARTED");
         Log.i(TAG, stateval);
         Log.i(TAG, " incoming number : " + bundle.getString("incoming_number"));
-        //Toast.makeText(context, " A hÌvÛ sz·ma: " + bundle.getString("incoming_number"), Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, " A h√≠v√≥ sz√°ma: " + bundle.getString("incoming_number"), Toast.LENGTH_LONG).show();
 
-        //SHaredPref rÈsz
+        //SHaredPref r√©sz
         editor.putString("CALLER_NUMBER", bundle.getString("incoming_number"));
         editor.commit();
 
-        // SharedPref kiÌr·s
+        // SharedPref ki√≠r√°s
         editor.putString("CALLER_NUMBER", bundle.getString("incoming_number"));
 
-        // FilÈs rÈsz
+        // Fil√©s r√©sz
             /*FileOutputStream outputStream;
             try {
                 outputStream = context.openFileOutput(filename, Context.MODE_PRIVATE);
@@ -120,7 +120,7 @@ public class CallEndReceiver extends BroadcastReceiver {
         return callernum;
 
 
-        // FilÈbıl Ìgy volt
+        // Fil√©b≈ël √≠gy volt
         /*try {
             InputStream in = context.openFileInput(filename);
             if (in != null) {

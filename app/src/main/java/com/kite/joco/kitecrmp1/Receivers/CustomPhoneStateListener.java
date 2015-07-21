@@ -9,7 +9,7 @@ import android.util.Log;
  */
 public class CustomPhoneStateListener extends PhoneStateListener {
 
-    private static final String TAG = "KITECRMDEMO";
+    private static final String TAG = "KITECRMP1";
 
     public void onCallStateChange(int state, String incomingNumber) {
 
@@ -19,7 +19,7 @@ public class CustomPhoneStateListener extends PhoneStateListener {
         switch (state) {
             case TelephonyManager.CALL_STATE_RINGING:
                 Log.d(TAG, "RINGING");
-                Log.i(TAG, "A hÌvÛ telefonsz·ma: " + incomingNumber);
+                Log.i(TAG, "A h√≠v√≥ telefonsz√°ma: " + incomingNumber);
                 break;
             case TelephonyManager.CALL_STATE_IDLE:
                 Log.i(TAG, "Number is : " + incomingNumber);

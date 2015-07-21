@@ -11,6 +11,7 @@ import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
 import com.raizlabs.android.dbflow.structure.BaseModel;
+import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class Contact extends BaseModel{
                     columnType = Long.class,
                     foreignColumnName = "id")},
             saveForeignKeyModel = false)
-    Beosztas beosztas;
+    ForeignKeyContainer<Beosztas> beosztasForeignKeyContainer;
 
     @Column
     @ForeignKey(
@@ -51,7 +52,7 @@ public class Contact extends BaseModel{
                     columnType = Long.class,
                     foreignColumnName = "id")},
             saveForeignKeyModel = false)
-    Partner partner;
+    ForeignKeyContainer<Partner> partnerForeignKeyContainer;
 
 
     List<Elerhetoseg> elerhetosegList;
@@ -106,21 +107,6 @@ public class Contact extends BaseModel{
         this.contact_kozepsonev = contact_kozepsonev;
     }
 
-    public Beosztas getBeosztas() {
-        return beosztas;
-    }
-
-    public void setBeosztas(Beosztas beosztas) {
-        this.beosztas = beosztas;
-    }
-
-    public Partner getPartner() {
-        return partner;
-    }
-
-    public void setPartner(Partner partner) {
-        this.partner = partner;
-    }
 
     public void setElerhetosegList(List<Elerhetoseg> elerhetosegList) {
         this.elerhetosegList = elerhetosegList;

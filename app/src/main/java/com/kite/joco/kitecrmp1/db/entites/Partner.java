@@ -35,11 +35,11 @@ public class Partner extends BaseModel {
     List<Contact> kapcsolatok;
 
 
-    @OneToMany(methods = OneToMany.Method.ALL)
+    @OneToMany(methods = OneToMany.Method.ALL, variableName = "kapcsolatok")
     public List<Contact> getKapcsolatok() {
         if (kapcsolatok == null) {
             kapcsolatok = new Select().from(Contact.class)
-                    .where(Condition.column(Contact$Table.PARTNER_PARTNER_ID).is(id))
+                    .where(Condition.column(Contact$Table.BEOSZTASFOREIGNKEYCONTAINER_BEOSZTAS_ID).is(id))
                     .queryList();
         }
         return kapcsolatok;
