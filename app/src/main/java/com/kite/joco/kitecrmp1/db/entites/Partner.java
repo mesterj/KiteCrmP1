@@ -2,6 +2,7 @@ package com.kite.joco.kitecrmp1.db.entites;
 
 import com.kite.joco.kitecrmp1.db.CrmDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.ModelContainer;
 import com.raizlabs.android.dbflow.annotation.OneToMany;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * Created by Joco on 2015.05.24..
  */
+@ModelContainer
 @Table(databaseName = CrmDatabase.DATABASE_NAME,tableName = "Partner")
 public class Partner extends BaseModel {
 
@@ -39,7 +41,7 @@ public class Partner extends BaseModel {
     public List<Contact> getKapcsolatok() {
         if (kapcsolatok == null) {
             kapcsolatok = new Select().from(Contact.class)
-                    .where(Condition.column(Contact$Table.BEOSZTASFOREIGNKEYCONTAINER_BEOSZTAS_ID).is(id))
+                    .where(Condition.column(Contact$Table.PARTNERFOREIGNKEYCONTAINER_PARTNER_ID).is(id))
                     .queryList();
         }
         return kapcsolatok;

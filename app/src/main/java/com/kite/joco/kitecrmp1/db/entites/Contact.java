@@ -67,6 +67,12 @@ public class Contact extends BaseModel{
         return elerhetosegList;
     }
 
+    // To assiciate to partner
+    public void addToPartner(Partner p){
+        this.partnerForeignKeyContainer = new ForeignKeyContainer<>(Partner.class);
+        this.partnerForeignKeyContainer.put(Partner$Table.ID,p.getId());
+    }
+
     public Long getId() {
         return id;
     }

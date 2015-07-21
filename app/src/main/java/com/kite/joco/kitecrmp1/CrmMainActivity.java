@@ -94,6 +94,7 @@ public class CrmMainActivity extends Activity {
         addeler.add(e);
         addeler.add(eemail);
         c.setElerhetosegList(addeler);
+
         //eemail.setContact_id(c.getId());
         eemail.save();
         ArrayList<Contact> contacts = new ArrayList<Contact>();
@@ -106,6 +107,7 @@ public class CrmMainActivity extends Activity {
         p.setUtca("Bem J. u. 1-3");
         p.save();
 
+        c.addToPartner(p);
         c.save();
         Log.i(TAG,"Data load finished");
     }

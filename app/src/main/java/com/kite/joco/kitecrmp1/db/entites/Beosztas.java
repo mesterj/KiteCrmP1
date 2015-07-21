@@ -34,4 +34,6 @@ public class Beosztas extends BaseModel {
     public void setBeosztas(String beosztas) {
         this.beosztas = beosztas;
     }
+
+
 }

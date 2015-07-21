@@ -53,12 +53,13 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
 
         try {
             List<Contact> contacts = new Select().from(Contact.class).where(Condition.column("partner_id").is(aktPartner.getId())).queryList();
-            if (contacts.size() == 0 ) {
-                Log.i(TAG, "Ennyi elemből áll a contact lista: " + contacts.size());
-                int i = contacts.size();
-                Contact item_contact = contacts.get(i);
+            int contsize = contacts.size();
+            if (contsize != 0 ) {
+                Log.i(TAG, "Ennyi elemből áll a contact lista: " + contsize);
+                Contact item_contact = contacts.get(0);
                 String kapcsnev = item_contact.getContact_vezeteknev() + " " + item_contact.getContact_keresztnev();
                 holder.tvKapcsolatNev.setText(kapcsnev);
+                Log.d(TAG,"A kapcsolat teljes neve: " + kapcsnev);
                 holder.btnEmail.setClickable(true);
                 holder.btnHivas.setClickable(true);
             } else {
