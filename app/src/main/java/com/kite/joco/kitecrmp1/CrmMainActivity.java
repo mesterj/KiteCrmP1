@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.kite.joco.kitecrmp1.activities.NewPartnerActivity;
 import com.kite.joco.kitecrmp1.activities.UgyfelActivity;
 import com.kite.joco.kitecrmp1.db.entites.Beosztas;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
@@ -78,7 +79,8 @@ public class CrmMainActivity extends Activity {
                 // itt fogom a new contact activitytt hívni
                 break;
             case (R.id.new_partner):
-                // itt fogok új partner felvinni
+                Intent partnerIntent = new Intent(getApplicationContext(),NewPartnerActivity.class);
+                startActivity(partnerIntent);
                 break;
             case (R.id.about):
                 Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();

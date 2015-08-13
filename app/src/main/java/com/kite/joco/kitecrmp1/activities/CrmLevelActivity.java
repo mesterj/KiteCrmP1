@@ -7,6 +7,7 @@ package com.kite.joco.kitecrmp1.activities;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -63,7 +64,8 @@ public class CrmLevelActivity extends Activity {
                 // itt fogom a new contact activitytt hívni
                 break;
             case (R.id.new_partner):
-                // itt fogok új partner felvinni
+                Intent partnerIntent = new Intent(getApplicationContext(),NewPartnerActivity.class);
+                startActivity(partnerIntent);
                 break;
             case (R.id.about):
                 Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();

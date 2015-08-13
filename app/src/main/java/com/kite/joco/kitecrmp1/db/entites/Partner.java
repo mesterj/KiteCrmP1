@@ -33,6 +33,8 @@ public class Partner extends BaseModel {
     String utca;
     @Column(name = "PS")
     String ps;
+    @Column
+    String adoszam;
 
     List<Contact> kapcsolatok;
 
@@ -93,5 +95,13 @@ public class Partner extends BaseModel {
 
     public void setPs(String ps) {
         this.ps = ps;
+    }
+
+    public String getAdoszam() {
+        return adoszam;
+    }
+
+    public void setAdoszam(String adoszam) {
+        this.adoszam = adoszam;
     }
 }

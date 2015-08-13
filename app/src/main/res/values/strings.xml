@@ -9,4 +9,6 @@
     <string name="title_activity_new_contact">Új kapcsolat felvitele</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="newpsnametext">Név</string>
+    <string name="pssavebtncaption">Partner mentése</string>
 </resources>
