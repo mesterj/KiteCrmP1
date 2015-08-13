@@ -1,9 +1,11 @@
 package com.kite.joco.kitecrmp1;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +19,6 @@ import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg_tipus;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class CrmMainActivity extends Activity {
@@ -27,6 +28,25 @@ public class CrmMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crm_main);
+        try {
+            ActionBar actionBar = getActionBar();
+            // Ez a home gomb ha lecserélem az ikonját akkor visszarak az alk. főoldalra (eggyel visszább)
+            actionBar.setDisplayShowHomeEnabled(true);
+            // Engedélyezi a feliratot ha saját layoutból fújom fel akkor kikapcs
+            actionBar.setDisplayShowTitleEnabled(false);
+            // Ez ad olyan vissza jelet amivel vissza lehet menni egy képernyőt. IOS-hez szokott userek hálásak lesznek érte
+            //actionBar.setDisplayHomeAsUpEnabled(true);
+            // Itt fújom fel a saját xml
+            LayoutInflater inflater = LayoutInflater.from(this);
+            View myactionbar = inflater.inflate(R.layout.actbarlayout, null);
+
+            // itt állítom be a custom layoutot az actionbarhoz
+            actionBar.setCustomView(myactionbar);
+            // itt történik a costum actionbar megjelenítése
+            actionBar.setDisplayShowCustomEnabled(true);
+        } catch (Exception nex) {
+            Log.d("ACTIONBARLOG", " A jó édes anyjáért nincs actionbar: " + nex.getLocalizedMessage());
+        }
     }
 
     @Override
