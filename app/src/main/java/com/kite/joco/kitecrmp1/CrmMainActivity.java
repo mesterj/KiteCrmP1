@@ -66,11 +66,19 @@ public class CrmMainActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
 
+        // Ezt minden módosítás után másolni kell a CrmLevelActivity-be, hogy mindenhol egyforma legyen a menű , de ez még majd kiderül.
+
         switch (id){
             case (R.id.action_settings):
                 break;
             case (R.id.home):
                 finish();
+                break;
+            case (R.id.new_contact):
+                // itt fogom a new contact activitytt hívni
+                break;
+            case (R.id.new_partner):
+                // itt fogok új partner felvinni
                 break;
             case (R.id.about):
                 Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();

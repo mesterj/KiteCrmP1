@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.kite.joco.kitecrmp1.R;
 
@@ -49,6 +50,7 @@ public class CrmLevelActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         switch (id){
@@ -57,8 +59,14 @@ public class CrmLevelActivity extends Activity {
             case (R.id.home):
                 finish();
                 break;
-          //  case (R.id.about):
-          //      Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();
+            case (R.id.new_contact):
+                // itt fogom a new contact activitytt hívni
+                break;
+            case (R.id.new_partner):
+                // itt fogok új partner felvinni
+                break;
+            case (R.id.about):
+                Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();
             default:
                 break;
         }

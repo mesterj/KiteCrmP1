@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".db.KiteCrmDbApp"
         android:allowBackup="true"
@@ -33,9 +35,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:parentActivityName=".CrmMainActivity"
             android:name=".activities.UgyfelActivity"
-            android:label="@string/title_activity_ugyfel" >
+            android:label="@string/title_activity_ugyfel"
+            android:parentActivityName=".CrmMainActivity" >
         </activity>
 
         <receiver android:name=".Receivers.CallEndReceiver" >
@@ -52,6 +54,14 @@
         <activity
             android:name=".activities.NewPartnerActivity"
             android:label="@string/title_activity_new_partner"
+            android:parentActivityName=".activities.UgyfelActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kite.joco.kitecrmp1.activities.UgyfelActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NewContactActivity"
+            android:label="@string/title_activity_new_contact"
             android:parentActivityName=".activities.UgyfelActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

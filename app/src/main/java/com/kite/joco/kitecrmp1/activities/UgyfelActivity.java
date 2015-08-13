@@ -4,8 +4,6 @@ package com.kite.joco.kitecrmp1.activities;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.kite.joco.kitecrmp1.Adapters.PartnerRecAdapter;
 import com.kite.joco.kitecrmp1.R;
@@ -34,7 +32,7 @@ public class UgyfelActivity extends CrmLevelActivity {
         rcvPartner.setAdapter(partnerAdapter);
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_ugyfel, menu);
@@ -54,5 +52,5 @@ public class UgyfelActivity extends CrmLevelActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
