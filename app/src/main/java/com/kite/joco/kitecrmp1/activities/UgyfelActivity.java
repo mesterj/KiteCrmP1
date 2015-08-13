@@ -2,8 +2,6 @@ package com.kite.joco.kitecrmp1.activities;
 
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.provider.Telephony;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -16,7 +14,7 @@ import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
 
-public class UgyfelActivity extends Activity {
+public class UgyfelActivity extends CrmLevelActivity {
 
     private RecyclerView rcvPartner;
 

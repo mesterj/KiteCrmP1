@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">KiteCrmP1</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Beállítások</string>
     <string name="title_activity_ugyfel">UgyfelActivity</string>
+    <string name="title_activity_new_partner">Új partner felvitele</string>
+    <string name="aboutmenutext">Névjegy</string>
+    <string name="newpartnermenutext">Új partner felvitele</string>
 </resources>

@@ -3,4 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".CrmMainActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/new_partner" android:title="@string/newpartnermenutext"
+        android:orderInCategory="200" app:showAsAction="ifRoom"/>
+    <item android:id="@+id/new_contact" android:title="Új kapcsolat felvitele"
+        android:orderInCategory="300" app:showAsAction="collapseActionView"/>
+    <item android:id="@+id/about" android:title="@string/aboutmenutext"
+        android:orderInCategory="400" app:showAsAction="collapseActionView"/>
 </menu>

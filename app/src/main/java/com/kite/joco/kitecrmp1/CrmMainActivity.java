@@ -63,10 +63,21 @@ public class CrmMainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch (id){
+            case (R.id.action_settings):
+                break;
+            case (R.id.home):
+                finish();
+                break;
+            case (R.id.about):
+                Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();
+            default:
+                break;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -90,6 +101,12 @@ public class CrmMainActivity extends Activity {
         Beosztas b = new Beosztas();
         b.setBeosztas("vérszívó");
         b.save();
+        Beosztas b1 = new Beosztas();
+        b1.setBeosztas("igazgató");
+        b1.save();
+        Beosztas b2 = new Beosztas();
+        b2.setBeosztas("agronómus");
+        b2.save();
         Elerhetoseg_tipus etip = new Elerhetoseg_tipus();
         etip.setTipus("Telefon");
         etip.save();
