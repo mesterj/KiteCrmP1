@@ -78,6 +78,12 @@ public class Contact extends BaseModel{
         return this.partnerForeignKeyContainer.toModel();
     }
 
+    public void addToPartnerWithModel(Partner p){
+        partnerForeignKeyContainer = new ForeignKeyContainer<>(Partner.class);
+        partnerForeignKeyContainer.setModel(p);
+        partnerForeignKeyContainer.toModel();
+    }
+
     public Long getId() {
         return id;
     }
