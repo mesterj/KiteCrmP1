@@ -1,10 +1,22 @@
 package com.kite.joco.kitecrmp1.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.kite.joco.kitecrmp1.R;
+import com.kite.joco.kitecrmp1.db.entites.Contact;
+import com.kite.joco.kitecrmp1.db.entites.Contact$Table;
+import com.kite.joco.kitecrmp1.db.entites.Partner;
+import com.kite.joco.kitecrmp1.db.entites.Partner$Table;
+import com.kite.joco.kitecrmp1.fragmentinterfaces.PartnerSearchInterface;
+import com.raizlabs.android.dbflow.sql.builder.Condition;
+import com.raizlabs.android.dbflow.sql.language.Select;
 
-public class NewContactActivity extends CrmLevelActivity {
+import java.util.List;
+
+public class NewContactActivity extends CrmLevelActivity implements PartnerSearchInterface{
+
+    public static final String LOGTAG = "KITCRM:NEWCONTACT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,6 +24,28 @@ public class NewContactActivity extends CrmLevelActivity {
         setContentView(R.layout.activity_new_contact);
     }
 
+    @Override
+    public void PartnerSearch(String searchparam) {
+        // A másik fragmenten beírt név alapján keresem a partner táblában a partnert
+        List<Partner> talaltPartnerek = new Select().from(Partner.class).where(Condition.column(Partner$Table.NEV).like(searchparam)).queryList();
+
+        List<Contact> talaltContactokbyVezeteknev = new Select().from(Contact.class).where(Condition.column(Contact$Table.CONTACT_VEZETEKNEV).like(searchparam)).queryList();
+        List<Contact> talaltContactok = new Select().from(Contact.class).where(Condition.column(Contact$Table.CONTACT_KERESZTNEV).like(searchparam)).queryList();
+        talaltContactok.addAll(talaltContactokbyVezeteknev);
+
+        for (Contact c: talaltContactok){
+            talaltPartnerek.add(c.getPartner());
+            Log.d(LOGTAG,"Talált partner neve: " + c.getPartner().getNev());
+        }
+
+
+    }
+/*
+ants = new Select()
+              .from(Ant.class)
+              .where(Condition.column(Ant$Table.QUEENFOREIGNKEYCONTAINER_QUEEN_ID).is(id))
+              .queryList();
+ */
 /*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

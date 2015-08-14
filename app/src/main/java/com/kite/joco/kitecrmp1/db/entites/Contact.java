@@ -73,6 +73,11 @@ public class Contact extends BaseModel{
         this.partnerForeignKeyContainer.put(Partner$Table.ID,p.getId());
     }
 
+    public Partner getPartner(){
+        this.partnerForeignKeyContainer = new ForeignKeyContainer<Partner>(Partner.class);
+        return this.partnerForeignKeyContainer.toModel();
+    }
+
     public Long getId() {
         return id;
     }

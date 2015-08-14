@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KiteCrmP1</string>
+    <string name="app_name">CRM-DEMO</string>
 
     <string name="action_settings">Beállítások</string>
     <string name="title_activity_ugyfel">UgyfelActivity</string>
@@ -11,4 +11,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="newpsnametext">Név</string>
     <string name="pssavebtncaption">Partner mentése</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
