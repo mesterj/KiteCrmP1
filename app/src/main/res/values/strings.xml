@@ -14,4 +14,8 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pssearchnevtext">Partner név:</string>
+    <string name="pssearchbycitytext">Település:</string>
+    <string name="pssearchbzncaption">Partner keresése</string>
+    <string name="title_activity_stat_frag_proba">StatFragProba</string>
 </resources>

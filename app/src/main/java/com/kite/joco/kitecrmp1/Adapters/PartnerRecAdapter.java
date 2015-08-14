@@ -26,7 +26,7 @@ import java.util.List;
 public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.PartnerViewHolder> {
 
     List<Partner> psData;
-    public static final String TAG="KITECRMP1_ADAPTER";
+    public static final String TAG="CRMDEMO_PS_ADAPTER";
 
     public PartnerRecAdapter(List<Partner> psData){
         this.psData = psData;
