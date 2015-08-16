@@ -107,6 +107,8 @@ public class Partner extends BaseModel {
 
     // TODO AZ éles appban ennél az equalsnál nyílván részletesebb kell majd. Pontosítani.
     // Szerintem Kristóf túlzásba viszi a dupla partnerkód ellenességet. Annál kicsit kevésbé durva is jó lesz.
+    // Meg ez az IntelliJ-s template kissé hányingerkeltő...
+
 
     @Override
     public boolean equals(Object o) {
