@@ -1,12 +1,13 @@
 package com.kite.joco.kitecrmp1.fragments;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.kite.joco.kitecrmp1.R;
@@ -21,6 +22,9 @@ public class PartnerSearchFragment extends Fragment implements View.OnClickListe
     PartnerSearchInterface partnerSearchInterface;
 
     EditText etPartnerSearch;
+    Button btnSearch ;
+
+    public final String LOGTAG = "CRMDEMO:PartnerSearchFragment";
 
 
     @Nullable
@@ -36,9 +40,13 @@ public class PartnerSearchFragment extends Fragment implements View.OnClickListe
         super.onActivityCreated(savedInstanceState);
         partnerSearchInterface = (PartnerSearchInterface) getActivity();
         etPartnerSearch = (EditText) getActivity().findViewById(R.id.etPsSearchNev);
+        btnSearch = (Button) getActivity().findViewById(R.id.btnSearchPs);
+        btnSearch.setOnClickListener(this);
     }
 
     public void onClick(View v) {
         partnerSearchInterface.PartnerSearch(etPartnerSearch.getText().toString());
+
+        Log.d(LOGTAG," A fragmens onclickje, paraméter: " + etPartnerSearch.getText().toString());
     }
 }

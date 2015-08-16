@@ -104,4 +104,26 @@ public class Partner extends BaseModel {
     public void setAdoszam(String adoszam) {
         this.adoszam = adoszam;
     }
+
+    // TODO AZ éles appban ennél az equalsnál nyílván részletesebb kell majd. Pontosítani.
+    // Szerintem Kristóf túlzásba viszi a dupla partnerkód ellenességet. Annál kicsit kevésbé durva is jó lesz.
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Partner partner = (Partner) o;
+
+        if (id != null ? !id.equals(partner.id) : partner.id != null) return false;
+        return !(adoszam != null ? !adoszam.equals(partner.adoszam) : partner.adoszam != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (adoszam != null ? adoszam.hashCode() : 0);
+        return result;
+    }
 }
