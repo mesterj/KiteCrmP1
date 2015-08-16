@@ -1,5 +1,6 @@
 package com.kite.joco.kitecrmp1.activities;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import com.kite.joco.kitecrmp1.R;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
 import com.kite.joco.kitecrmp1.db.entites.Partner$Table;
 import com.kite.joco.kitecrmp1.fragmentinterfaces.PartnerSearchInterface;
+import com.kite.joco.kitecrmp1.fragments.PartnerListFragment;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
 
@@ -60,6 +62,10 @@ public class StatFragProba extends CrmLevelActivity implements PartnerSearchInte
             talaltPartnerek.add(c.getPartner());
             Log.d(LOGTAG, "Talált partner neve: " + c.getPartner().getNev());
         }*/
+
+        FragmentManager fragmentManager = getFragmentManager();
+        PartnerListFragment f2 = (PartnerListFragment) fragmentManager.findFragmentById(R.id.partnerListFrag);
+        f2.refreshRecView(talaltPartnerek);
 
     }
 

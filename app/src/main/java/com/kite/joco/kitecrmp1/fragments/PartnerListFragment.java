@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import java.util.List;
  * Created by József on 2015.08.14..
  */
 public class PartnerListFragment extends Fragment {
+
+    public final String LOGTAG = "CRMDEMO:PartnerListFragment";
 
     RecyclerView recyclerViewPs;
 
@@ -38,4 +41,12 @@ public class PartnerListFragment extends Fragment {
         recyclerViewPs.setAdapter(partnerAdapter);
         return root;
     }
+
+    public void refreshRecView(List<Partner> partnerList) {
+        Log.d(LOGTAG,"Recycler view refresh called");
+        partnerAdapter = new PartnerRecAdapter(partnerList);
+        partnerAdapter.notifyDataSetChanged();
+        recyclerViewPs.setAdapter(partnerAdapter);
+    }
+
 }
