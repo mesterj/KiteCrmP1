@@ -1,8 +1,10 @@
 package com.kite.joco.kitecrmp1;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,11 +22,13 @@ import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg_tipus;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class CrmMainActivity extends Activity {
 
     public static final String TAG="MAINACTIVITYTAG";
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,14 @@ public class CrmMainActivity extends Activity {
         } catch (Exception nex) {
             Log.d("ACTIONBARLOG", " A jó édes anyjáért nincs actionbar: " + nex.getLocalizedMessage());
         }
+
+        // Magyar locale beállítása a programnak
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        Locale huloc = new Locale("hu");
+        Locale.setDefault(huloc);
+        //config.locale = huloc;
+        //getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        config.setLocale(huloc);
     }
 
     @Override

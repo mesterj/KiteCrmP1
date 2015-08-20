@@ -44,17 +44,18 @@
 
             <Button
                 android:id="@+id/btnHivas"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+
                 android:background="@drawable/phonemini"
                 android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btnEmail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
                 android:background="@drawable/mail"
                 android:onClick="onClick" />
 
