@@ -37,14 +37,14 @@ public class PartnerListFragment extends Fragment {
         partnerLayoutManager = new LinearLayoutManager(getActivity());
         recyclerViewPs.setLayoutManager(partnerLayoutManager);
         List<Partner> partnerList = new Select().from(Partner.class).queryList();
-        partnerAdapter = new PartnerRecAdapter(partnerList);
+        partnerAdapter = new PartnerRecAdapter(getActivity(),partnerList);
         recyclerViewPs.setAdapter(partnerAdapter);
         return root;
     }
 
     public void refreshRecView(List<Partner> partnerList) {
         Log.d(LOGTAG,"Recycler view refresh called");
-        partnerAdapter = new PartnerRecAdapter(partnerList);
+        partnerAdapter = new PartnerRecAdapter(getActivity(),partnerList);
         partnerAdapter.notifyDataSetChanged();
         recyclerViewPs.setAdapter(partnerAdapter);
     }

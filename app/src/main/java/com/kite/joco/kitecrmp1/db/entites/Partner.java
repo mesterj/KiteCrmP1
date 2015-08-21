@@ -26,6 +26,8 @@ public class Partner extends BaseModel {
     @Column
     String nev;
     @Column
+    String searchnev;
+    @Column
     String telepules;
     @Column
     String irsz;
@@ -63,6 +65,15 @@ public class Partner extends BaseModel {
 
     public void setNev(String nev) {
         this.nev = nev;
+        setSearchnev(nev);
+    }
+
+    public String getSearchnev() {
+        return searchnev;
+    }
+
+    public void setSearchnev(String searchnev) {
+        this.searchnev = searchnev.toUpperCase();
     }
 
     public String getTelepules() {

@@ -2,8 +2,6 @@ package com.kite.joco.kitecrmp1.activities;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -34,10 +32,12 @@ public class NewPartnerActivity extends CrmLevelActivity {
         p.setAdoszam(etPartnerAdo.getText().toString());
         p.setIrsz(etPartnerIrsz.getText().toString());
         p.setNev(etPartnerNev.getText().toString());
+       // p.setSearchnev(etPartnerNev.getText().toString());
         p.setTelepules(etPartnerTelepules.getText().toString());
         p.setUtca(etPartnerCim.getText().toString());
        try {
            p.save();
+           finish();
            Log.d(LOGTAG, " Partner saved: " + p.getNev());
        }
        catch (Exception ex){

@@ -161,6 +161,7 @@ public class CrmMainActivity extends Activity {
         Partner p = new Partner();
         p.setIrsz("4183");
         p.setNev("KITE Zrt");
+       // p.setSearchnev("KITE Zrt");
         p.setPs("106913");
         p.setTelepules("Nádudvar");
         p.setUtca("Bem J. u. 1-3");

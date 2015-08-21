@@ -27,10 +27,21 @@ public class UgyfelActivity extends CrmLevelActivity {
         rcvPartner = (RecyclerView) findViewById(R.id.rcvPartner);
         partnerLayoutManager = new LinearLayoutManager(this);
         rcvPartner.setLayoutManager(partnerLayoutManager);
-        List<Partner> partnerList = new Select().from(Partner.class).queryList();
-        partnerAdapter = new PartnerRecAdapter(partnerList);
+        partnerAdapter = filladapterdata();
         rcvPartner.setAdapter(partnerAdapter);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        partnerAdapter = filladapterdata();
+        rcvPartner.setAdapter(partnerAdapter);
+        partnerAdapter.notifyDataSetChanged();
+    }
 
+    public RecyclerView.Adapter filladapterdata (){
+        List<Partner> partnerList = new Select().from(Partner.class).queryList();
+        partnerAdapter = new PartnerRecAdapter(this,partnerList);
+        return  partnerAdapter;
+    }
 }

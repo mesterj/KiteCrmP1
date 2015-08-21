@@ -34,21 +34,9 @@ public class StatFragProba extends CrmLevelActivity implements PartnerSearchInte
 
         // TODO Erre a keresésre még sok helyen szükség lehet , ki kellene szervezni egy util osztályba
         // A másik fragmenten beírt név alapján keresem a partner táblában a partnert
-        Log.d(LOGTAG," Kersés kis betűvel : " + searchparam.toLowerCase());
-        talaltPartnerek = new Select().from(Partner.class).where(Condition.column(Partner$Table.NEV).like(searchparam.toLowerCase())).queryList();
-     //   Log.d(LOGTAG," Kersés nagy betűvel : " + searchparam.toUpperCase());
-     //   List<Partner> nagytalaltPartnerek = new Select().from(Partner.class).where(Condition.column(Partner$Table.NEV).like(searchparam.toUpperCase())).queryList();
+        Log.d(LOGTAG," Keresés nagy betűvel : " + searchparam.toUpperCase());
+        List<Partner> talaltPartnerek = new Select().from(Partner.class).where(Condition.column(Partner$Table.SEARCHNEV).like(searchparam.toUpperCase())).queryList();
 
-        // Csak log céllal
-       /* for (Partner p : nagytalaltPartnerek){
-            if (talaltPartnerek.contains(p))
-                Log.d(LOGTAG,"Ez már benne volt: " + p.getId());
-            else
-            talaltPartnerek.add(p);
-        }*/
-
-        // Anyádat
-        Log.d(LOGTAG,"");
 
         Log.d(LOGTAG,"Végső találati lista");
         for (Partner p:talaltPartnerek){
