@@ -18,23 +18,29 @@ public class PartnerInfoActivity extends CrmLevelActivity {
     private final String LOGTAG="CRMDEMO:PSINFOAC ";
 
     TextView tvPsKod ;
+    TextView tvPsNev;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            long id = savedInstanceState.getLong("KEY_PS_ID");
-            Partner p;
+        setContentView(R.layout.activity_partner_info);
+        long id = getIntent().getLongExtra(PartnerInfoActivity.KEY_PS_ID,0l);
+        Log.d(LOGTAG,"Az id: " + id);
+          Partner p;
             try {
                 p = new Select().from(Partner.class).where(Condition.column(Partner$Table.ID).is(id)).querySingle();
-                tvPsKod.setText(p.getPs());
+                Log.d(LOGTAG,"Talált partner: " +p.getNev());
+                tvPsKod = (TextView) findViewById(R.id.tvPsKod);
+                tvPsNev = (TextView) findViewById(R.id.tvPsNev);
+            //    tvPsKod.setText(p.getPs());
+                tvPsNev.setText(p.getNev());
             } catch (Exception ex) {
                 Log.d(LOGTAG, " Nem sikerült az id alapú lekérés, ez nagy baj! " + ex.getMessage());
                 p = null;
                 finish();
             }
-        }
-        setContentView(R.layout.activity_partner_info);
+
+
     }
 
     public void onClick(View v){

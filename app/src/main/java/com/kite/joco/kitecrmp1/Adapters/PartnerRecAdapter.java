@@ -46,6 +46,7 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
                // Toast.makeText(context, "Partner obj települése: " + psData.get(position).getTelepules(), Toast.LENGTH_SHORT).show();
                 Intent psIntent = new Intent(context, PartnerInfoActivity.class);
                 psIntent.putExtra(PartnerInfoActivity.KEY_PS_ID,psData.get(position).getId());
+                Log.d(LOGTAG," Id átadva az intentnek: "+ psData.get(position).getId());
                 context.startActivity(psIntent);
             }
 
