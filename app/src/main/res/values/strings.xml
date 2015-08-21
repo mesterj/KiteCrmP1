@@ -18,4 +18,7 @@
     <string name="pssearchbycitytext">Település:</string>
     <string name="pssearchbzncaption">Partner keresése</string>
     <string name="title_activity_stat_frag_proba">StatFragProba</string>
+    <string name="title_activity_partner_info">PartnerInfoActivity</string>
+    <string name="tvPsKod">Partner kód:</string>
+    <string name="btnCaptionBack">Vissza</string>
 </resources>

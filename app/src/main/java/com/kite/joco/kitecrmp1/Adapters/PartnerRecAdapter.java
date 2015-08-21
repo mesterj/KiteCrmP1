@@ -1,6 +1,7 @@
 package com.kite.joco.kitecrmp1.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kite.joco.kitecrmp1.R;
+import com.kite.joco.kitecrmp1.activities.PartnerInfoActivity;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
@@ -41,7 +43,10 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
         return new PartnerViewHolder(partnerLayoutView, new PartnerViewHolder.PartnerViewHolderClicks() {
             @Override
             public void onPartner(View caller, int position) {
-                Toast.makeText(context, "Partner obj települése: " + psData.get(position).getTelepules(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, "Partner obj települése: " + psData.get(position).getTelepules(), Toast.LENGTH_SHORT).show();
+                Intent psIntent = new Intent(context, PartnerInfoActivity.class);
+                psIntent.putExtra(PartnerInfoActivity.KEY_PS_ID,psData.get(position).getId());
+                context.startActivity(psIntent);
             }
 
             @Override

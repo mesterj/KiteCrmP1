@@ -38,6 +38,7 @@ public class StatFragProba extends CrmLevelActivity implements PartnerSearchInte
         List<Partner> talaltPartnerek = new Select().from(Partner.class).where(Condition.column(Partner$Table.SEARCHNEV).like(searchparam.toUpperCase())).queryList();
 
 
+        // TODO Ezt ki lehet venni a logból
         Log.d(LOGTAG,"Végső találati lista");
         for (Partner p:talaltPartnerek){
             Log.d(LOGTAG," Talált partnerek nevei: " +p.getNev() );

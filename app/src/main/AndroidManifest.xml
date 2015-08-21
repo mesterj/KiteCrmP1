@@ -70,6 +70,14 @@
             android:name=".activities.StatFragProba"
             android:label="@string/title_activity_stat_frag_proba" >
         </activity>
+        <activity
+            android:name=".activities.PartnerInfoActivity"
+            android:label="@string/title_activity_partner_info"
+            android:parentActivityName=".activities.StatFragProba" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kite.joco.kitecrmp1.activities.StatFragProba" />
+        </activity>
     </application>
 
 </manifest>
