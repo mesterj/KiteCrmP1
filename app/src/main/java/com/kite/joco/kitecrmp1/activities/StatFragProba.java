@@ -61,6 +61,20 @@ public class StatFragProba extends CrmLevelActivity implements PartnerSearchInte
 
     }
 
+    @Override
+    public void PartnerSearchbyNevandTelepules(String nevparam, String telepulesparam) {
+        String knevparam = "%"+ nevparam.toUpperCase()+"%";
+        String ktelepulesparam = "%"+ telepulesparam.toUpperCase()+"%";
+        Log.d(LOGTAG,"Keresés település szerint");
+
+        List<Partner> nevteleppslista = new Select().from(Partner.class).where(Condition.column(Partner$Table.SEARCHNEV)
+                .like(knevparam)).and(Condition.column(Partner$Table.TELEPULES).like(ktelepulesparam)).queryList();
+
+        FragmentManager fragmentManager = getFragmentManager();
+        PartnerListFragment f2 = (PartnerListFragment) fragmentManager.findFragmentById(R.id.partnerListFrag);
+        f2.refreshRecView(nevteleppslista);
+    }
+
     public void onClick(View v){
         Log.d(LOGTAG,"Onclickje");
     }

@@ -40,6 +40,11 @@ public class NewContactActivity extends CrmLevelActivity implements PartnerSearc
 
 
     }
+
+    @Override
+    public void PartnerSearchbyNevandTelepules(String nevparam, String telepulesparam) {
+
+    }
 /*
 ants = new Select()
               .from(Ant.class)

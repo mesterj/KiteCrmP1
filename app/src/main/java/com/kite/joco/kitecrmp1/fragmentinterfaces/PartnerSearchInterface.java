@@ -6,4 +6,6 @@ package com.kite.joco.kitecrmp1.fragmentinterfaces;
 public interface PartnerSearchInterface  {
 
     public void PartnerSearch(String searchparam);
+
+    public void PartnerSearchbyNevandTelepules(String nevparam,String telepulesparam);
 }

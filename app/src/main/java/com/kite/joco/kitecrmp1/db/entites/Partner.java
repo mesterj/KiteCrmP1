@@ -77,11 +77,11 @@ public class Partner extends BaseModel {
     }
 
     public String getTelepules() {
-        return telepules;
+        return telepules.toUpperCase();
     }
 
     public void setTelepules(String telepules) {
-        this.telepules = telepules;
+        this.telepules = telepules.toUpperCase();
     }
 
     public String getIrsz() {

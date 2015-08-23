@@ -42,7 +42,7 @@ public class PartnerSearchFragment extends Fragment implements TextWatcher {
         etPartnerSearch = (EditText) getActivity().findViewById(R.id.etPsSearchNev);
         etPartnerSearch.addTextChangedListener(this);
         etTelepulesSearch = (EditText) getActivity().findViewById(R.id.etPsSearchTelep);
-        //etTelepulesSearch.addTextChangedListener(this);
+        etTelepulesSearch.addTextChangedListener(this);
 
 
     }
@@ -58,10 +58,17 @@ public class PartnerSearchFragment extends Fragment implements TextWatcher {
 
     }
 
+
+    // TODO Kell külön textwatcher a két edittexthez?
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        partnerSearchInterface.PartnerSearch(s.toString());
-        Log.d(LOGTAG, " A fragmens edittext onTextChanged, paraméter: " + etPartnerSearch.getText().toString());
+        if (etTelepulesSearch.getText().toString().equals("") || etTelepulesSearch.getText().toString() == null) {
+            partnerSearchInterface.PartnerSearch(s.toString());
+            Log.d(LOGTAG, " A fragmens edittext onTextChanged, paraméter: " + etPartnerSearch.getText().toString());
+        }
+        else {
+            //partnerSearchInterface.PartnerSearchbyNevandTelepules();
+        }
     }
 
     @Override
