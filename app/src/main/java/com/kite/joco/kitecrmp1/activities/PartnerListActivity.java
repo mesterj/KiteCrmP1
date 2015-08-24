@@ -15,9 +15,9 @@ import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.List;
 
-public class StatFragProba extends CrmLevelActivity implements PartnerSearchInterface {
+public class PartnerListActivity extends CrmLevelActivity implements PartnerSearchInterface {
 
-    public static final String LOGTAG = "CRMDEMO:StatFragProba Activity ";
+    public static final String LOGTAG = "CRMDEMO:PartnerListActivity Activity ";
 
     List<Partner> talaltPartnerek;
 

@@ -62,7 +62,7 @@ public class CrmLevelActivity extends Activity {
                 break;
             case (R.id.new_contact):
                 // itt fogom a new contact activitytt hívni most a fragment proba van itt
-                Intent statproba = new Intent(getApplicationContext(),StatFragProba.class);
+                Intent statproba = new Intent(getApplicationContext(),PartnerListActivity.class);
                 startActivity(statproba);
                 break;
             case (R.id.new_partner):

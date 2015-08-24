@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.kite.joco.kitecrmp1.activities.NewPartnerActivity;
+import com.kite.joco.kitecrmp1.activities.PartnerListActivity;
 import com.kite.joco.kitecrmp1.activities.UgyfelActivity;
 import com.kite.joco.kitecrmp1.db.entites.Beosztas;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
@@ -107,7 +108,7 @@ public class CrmMainActivity extends Activity {
     public void onClick(View v){
         switch (v.getId()){
             case (R.id.btnUgyfel):
-                Intent ugyfelIntent = new Intent(this,UgyfelActivity.class);
+                Intent ugyfelIntent = new Intent(this, PartnerListActivity.class);
                 startActivity(ugyfelIntent);
                 break;
             case (R.id.btnLoadData):

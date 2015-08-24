@@ -53,7 +53,7 @@
         <activity
             android:name=".activities.NewPartnerActivity"
             android:label="@string/title_activity_new_partner"
-            android:parentActivityName=".activities.UgyfelActivity" >
+            android:parentActivityName=".activities.PartnerListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kite.joco.kitecrmp1.activities.UgyfelActivity" />
@@ -61,22 +61,23 @@
         <activity
             android:name=".activities.NewContactActivity"
             android:label="@string/title_activity_new_contact"
-            android:parentActivityName=".activities.UgyfelActivity" >
+            android:parentActivityName=".activities.PartnerListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kite.joco.kitecrmp1.activities.UgyfelActivity" />
         </activity>
         <activity
-            android:name=".activities.StatFragProba"
+            android:parentActivityName=".CrmMainActivity"
+            android:name=".activities.PartnerListActivity"
             android:label="@string/title_activity_stat_frag_proba" >
         </activity>
         <activity
             android:name=".activities.PartnerInfoActivity"
             android:label="@string/title_activity_partner_info"
-            android:parentActivityName=".activities.StatFragProba" >
+            android:parentActivityName=".activities.PartnerListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kite.joco.kitecrmp1.activities.StatFragProba" />
+                android:value=".activities.PartnerListActivity" />
         </activity>
     </application>
 

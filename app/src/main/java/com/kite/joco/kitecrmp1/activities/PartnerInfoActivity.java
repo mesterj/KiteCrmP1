@@ -30,7 +30,7 @@ public class PartnerInfoActivity extends CrmLevelActivity {
             try {
                 p = new Select().from(Partner.class).where(Condition.column(Partner$Table.ID).is(id)).querySingle();
                 Log.d(LOGTAG,"Talált partner: " +p.getNev());
-                tvPsKod = (TextView) findViewById(R.id.tvPsKod);
+             //   tvPsKod = (TextView) findViewById(R.id.tvPsKod);
                 tvPsNev = (TextView) findViewById(R.id.tvPsNev);
             //    tvPsKod.setText(p.getPs());
                 tvPsNev.setText(p.getNev());

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvRecKapcsolatNev"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvRecKapcsolatBeosztas"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:textSize="8sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCallContact"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/phonemini" />
+
+        <TextView
+            android:id="@+id/tvKapcsElsoTelefonszam"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEmailContact"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/mail" />
+
+        <TextView
+            android:id="@+id/tvKapcsElsoEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

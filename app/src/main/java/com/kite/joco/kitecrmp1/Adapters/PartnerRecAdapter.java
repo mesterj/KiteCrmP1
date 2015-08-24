@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,10 +51,10 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
                 context.startActivity(psIntent);
             }
 
-            @Override
+          /*  @Override
             public void onPartnerNev(TextView textView, int position) {
                 Toast.makeText(context, "Partner név: " + textView.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
             @Override
             public void onCallButton(Button button, int position) {
@@ -152,9 +153,6 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
                         Log.d(LOGTAG, "Hiba (kapcs név): " + ex.getMessage() + " pozíció: " + getAdapterPosition());
                     }
                     break;
-                case (R.id.tvPartnernev):
-                    partnerClicklistener.onPartnerNev((TextView) v, getAdapterPosition());
-                    break;
                 default:
                     partnerClicklistener.onPartner(v, getAdapterPosition());
                     Log.d(LOGTAG, "default eset.");
@@ -164,7 +162,7 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
 
         public interface PartnerViewHolderClicks {
             void onPartner(View caller, int position);
-            void onPartnerNev(TextView textView, int position);
+            //void onPartnerNev(TextView textView, int position);
             void onCallButton(Button button, int position);
             void onEmailButton(Button button, int position);
             void onConnectName(TextView v, int position);
