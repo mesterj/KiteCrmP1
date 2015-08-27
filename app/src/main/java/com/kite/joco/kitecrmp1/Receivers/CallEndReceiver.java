@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.Window;
+
+import com.kite.joco.kitecrmp1.activities.NewContactActivity;
 
 import java.util.Set;
 
@@ -56,12 +59,12 @@ public class CallEndReceiver extends BroadcastReceiver {
             Log.i(TAG, "callerNumber value is " + callerNumber);
             Log.i(TAG, " called number value is_: " + calledNumber);
             if (!callerNumber.equals("")) {
-                //Intent newContactIntent = new Intent(context, NewContactActivity.class);
-                //newContactIntent.putExtra("Number", callerNumber);
-                //newContactIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-               // editor.remove("CALLER_NUMBER");
-                //editor.commit();
-                //context.startActivity(newContactIntent);
+                Intent newContactIntent = new Intent(context, NewContactActivity.class);
+                newContactIntent.putExtra("Number", callerNumber);
+                newContactIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               editor.remove("CALLER_NUMBER");
+               editor.commit();
+             //  context.startActivity(newContactIntent);
             }
             if (!calledNumber.equals("")) {
                 //Intent newContIntent1 = new Intent(context, NewContactActivity.class);

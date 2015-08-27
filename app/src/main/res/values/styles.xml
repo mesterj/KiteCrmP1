@@ -10,4 +10,9 @@
         <item name="android:textColor">@android:color/holo_green_dark</item>
     </style>
 
+    <style name="CRM_Button_default_theme" parent="AppTheme">
+        <item name="android:background">@drawable/mybutton</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
 </resources>

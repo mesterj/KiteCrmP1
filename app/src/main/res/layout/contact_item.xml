@@ -5,16 +5,18 @@
     android:orientation="vertical">
 
     <TextView
+        android:text="@string/nocontacttext"
         android:id="@+id/tvRecKapcsolatNev"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:textSize="16sp" />
+        android:layout_height="20dp"
+        android:textSize="18sp" />
 
     <TextView
+        android:text="@string/nocontacttext"
         android:id="@+id/tvRecKapcsolatBeosztas"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:textSize="8sp" />
+        android:layout_height="12dp"
+        android:textSize="10sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,6 +31,7 @@
 
         <TextView
             android:id="@+id/tvKapcsElsoTelefonszam"
+            android:text="@string/sampletelefontext"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
 
@@ -47,6 +50,7 @@
 
         <TextView
             android:id="@+id/tvKapcsElsoEmail"
+            android:text="@string/sampleemailtext"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
 

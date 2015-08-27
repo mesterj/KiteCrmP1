@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="ANDROID.PERMISSION.DISABLE_KEYGUARD"/>
 
     <application
         android:name=".db.KiteCrmDbApp"
@@ -67,9 +68,9 @@
                 android:value="com.kite.joco.kitecrmp1.activities.UgyfelActivity" />
         </activity>
         <activity
-            android:parentActivityName=".CrmMainActivity"
             android:name=".activities.PartnerListActivity"
-            android:label="@string/title_activity_stat_frag_proba" >
+            android:label="@string/title_activity_stat_frag_proba"
+            android:parentActivityName=".CrmMainActivity" >
         </activity>
         <activity
             android:name=".activities.PartnerInfoActivity"
@@ -78,6 +79,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.PartnerListActivity" />
+        </activity>
+        <activity
+            android:name=".activities.ContactListActivity"
+            android:label="@string/title_activity_contact_list"
+            android:parentActivityName=".CrmMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kite.joco.kitecrmp1.CrmMainActivity" />
         </activity>
     </application>
 

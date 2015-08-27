@@ -61,11 +61,12 @@ public class ContactRecycleAdapter extends RecyclerView.Adapter<ContactRecycleAd
     public static class ContactViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ContactClickInterface contactClickInterface;
+        TextView tvContactNev;
 
         public ContactViewHolder(View itemView, ContactClickInterface clickInterface) {
             super(itemView);
             clickInterface = contactClickInterface;
-            TextView tvContactNev = (TextView) itemView.findViewWithTag("ContactNevText");
+            tvContactNev = (TextView) itemView.findViewWithTag("ContactNevText");
 
             //tvContactNev.setOnClickListener(this);
             itemView.setOnClickListener(this);

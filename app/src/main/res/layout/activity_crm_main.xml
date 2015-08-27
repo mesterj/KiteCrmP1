@@ -15,14 +15,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ügyfél adatbázis"
-            android:onClick="onClick"/>
+            android:onClick="onClick"
+            style="@style/CRM_Button_default_theme"/>
+
+        <Button
+            android:id="@+id/btnContacts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kapcsolatokbtncaption"
+            android:onClick="onClick"
+            style="@style/CRM_Button_default_theme"/>
 
         <Button
             android:id="@+id/btnLoadData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Adatfeltöltés(program)"
-            android:onClick="onClick"/>
+            android:onClick="onClick"
+            style="@style/CRM_Button_default_theme"/>
 
     </LinearLayout>
 

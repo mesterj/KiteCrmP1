@@ -21,4 +21,9 @@
     <string name="title_activity_partner_info">PartnerInfoActivity</string>
     <string name="tvPsKod">Partner kód:</string>
     <string name="btnCaptionBack">Vissza</string>
+    <string name="sampleemailtext">kapcsolat@kapcsolat.com</string>
+    <string name="sampletelefontext">+36555555555</string>
+    <string name="nocontacttext">Még nincs rögzítve kapcsolat</string>
+    <string name="title_activity_contact_list">Kapcsolatok</string>
+    <string name="kapcsolatokbtncaption">Kapcsolatok</string>
 </resources>

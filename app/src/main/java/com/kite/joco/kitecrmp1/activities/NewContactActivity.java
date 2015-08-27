@@ -2,6 +2,8 @@ package com.kite.joco.kitecrmp1.activities;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.kite.joco.kitecrmp1.R;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
@@ -22,6 +24,11 @@ public class NewContactActivity extends CrmLevelActivity implements PartnerSearc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_contact);
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        window.addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+        //,setContentView(R.layout.activity_new_contact);
     }
 
     @Override
