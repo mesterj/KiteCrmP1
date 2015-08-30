@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.Window;
 
 import com.kite.joco.kitecrmp1.activities.NewContactActivity;
+import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg;
+import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg$Table;
+import com.raizlabs.android.dbflow.sql.builder.Condition;
+import com.raizlabs.android.dbflow.sql.language.Select;
 
 import java.util.Set;
 
@@ -21,7 +24,7 @@ public class CallEndReceiver extends BroadcastReceiver {
     String filename = "CallerNum";
     SharedPreferences callinglogpref;
     final String sharedprefile = "CALLLOGPREF";
-    final String TAG = "KITECRMP1";
+    final String LOGTAG = "CRMDEMO:CALLENDRECEIVER";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -53,18 +56,29 @@ public class CallEndReceiver extends BroadcastReceiver {
         // ha a hívás befejeződik és még nem volt ilyen számmal senki a telefonkönyvben akkor először az új kapcsolat felvitléhez való képernyő indul el, benne a telefonszámmal.
 
         if (stateval != null && stateval.equals("IDLE")) {
-            Log.i(TAG, "CALL ENDED");
-            Log.i(TAG, stateval);
-            Log.i(TAG, "Most kellene hívni az activityt!");
-            Log.i(TAG, "callerNumber value is " + callerNumber);
-            Log.i(TAG, " called number value is_: " + calledNumber);
+            Log.i(LOGTAG, "CALL ENDED");
+            Log.i(LOGTAG, stateval);
+            Log.i(LOGTAG, "Most kellene hívni az activityt!");
+            Log.i(LOGTAG, "callerNumber value is " + callerNumber);
+            Elerhetoseg calledElerhetoseg = new Select().from(Elerhetoseg.class).where(Condition.column(Elerhetoseg$Table.ELERHETOSEGADAT).is(callerNumber)).querySingle();
+
+            if (calledElerhetoseg != null) {
+                //long id = calledElerhetoseg.getContactId();
+                //Contact calledContact = new Select().from(Contact.class).where(Condition.column(Contact$Table.ID).eq(id)).querySingle();
+                //Log.i(LOGTAG, " találtam elérhetőséget ilyen számmal: " + calledElerhetoseg.getElerhetosegadat());
+
+               //Log.i(LOGTAG, " A megtalált contact : " + calledContact.getContact_vezeteknev());
+                // Ide jön az új memo hívás
+                //Log.i(LOGTAG," Itt kell majd hívni az új memót");
+            }
+            Log.i(LOGTAG, " called number value is : " + calledNumber);
             if (!callerNumber.equals("")) {
                 Intent newContactIntent = new Intent(context, NewContactActivity.class);
                 newContactIntent.putExtra("Number", callerNumber);
                 newContactIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                editor.remove("CALLER_NUMBER");
                editor.commit();
-             //  context.startActivity(newContactIntent);
+               //context.startActivity(newContactIntent);
             }
             if (!calledNumber.equals("")) {
                 //Intent newContIntent1 = new Intent(context, NewContactActivity.class);
@@ -84,9 +98,9 @@ public class CallEndReceiver extends BroadcastReceiver {
     else if(stateval!=null&&stateval.equals("RINGING"))
 
     {
-        Log.i(TAG, " CALL_STARTED");
-        Log.i(TAG, stateval);
-        Log.i(TAG, " incoming number : " + bundle.getString("incoming_number"));
+        Log.i(LOGTAG, " CALL_STARTED");
+        Log.i(LOGTAG, stateval);
+        Log.i(LOGTAG, " incoming number : " + bundle.getString("incoming_number"));
         //Toast.makeText(context, " A hívó száma: " + bundle.getString("incoming_number"), Toast.LENGTH_LONG).show();
 
         //SHaredPref rész
@@ -110,7 +124,7 @@ public class CallEndReceiver extends BroadcastReceiver {
     else
 
     {
-        Log.i(TAG, "Nem tudom ilyenkor mi van");
+        Log.i(LOGTAG, "Nem tudom ilyenkor mi van");
     }
 
 }

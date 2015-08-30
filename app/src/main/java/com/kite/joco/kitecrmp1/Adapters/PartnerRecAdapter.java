@@ -8,13 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kite.joco.kitecrmp1.R;
 import com.kite.joco.kitecrmp1.activities.PartnerInfoActivity;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
+import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg;
+import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg$Table;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
@@ -87,6 +88,8 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
         try {
             List<Contact> contacts = new Select().from(Contact.class).where(Condition.column("partner_id").is(aktPartner.getId())).queryList();
             int contsize = contacts.size();
+            List<Elerhetoseg> elerhetosegList = new Select().from(Elerhetoseg.class).where(Condition.column(Elerhetoseg$Table.CONTACT_ID_CONTACT_ID).eq(contacts.get(0).getId())).queryList();
+            Log.d(LOGTAG," A c elerhetosegei db: " + elerhetosegList.size());
             if (contsize != 0) {
                 Log.i(LOGTAG, "Ennyi elemből áll a contact lista: " + contsize);
                 Contact item_contact = contacts.get(0);
@@ -95,6 +98,7 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
                 Log.d(LOGTAG, "A kapcsolat teljes neve: " + kapcsnev);
                 holder.btnEmail.setClickable(true);
                 holder.btnHivas.setClickable(true);
+                Log.d(LOGTAG," A kapcsolat telefonszáma: " + item_contact.getElerhetosegList().get(0).getElerhetosegadat());
             } else {
                 Log.d(LOGTAG, "Nincs rögzítve kapcsolat");
                 holder.tvKapcsolatNev.setText("Nincs rögzítve kapcsolat");

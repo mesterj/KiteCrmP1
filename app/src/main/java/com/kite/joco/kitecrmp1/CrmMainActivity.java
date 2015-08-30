@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.kite.joco.kitecrmp1.activities.NewPartnerActivity;
 import com.kite.joco.kitecrmp1.activities.PartnerListActivity;
-import com.kite.joco.kitecrmp1.activities.UgyfelActivity;
 import com.kite.joco.kitecrmp1.db.entites.Beosztas;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
 import com.kite.joco.kitecrmp1.db.entites.Elerhetoseg;
@@ -138,9 +137,9 @@ public class CrmMainActivity extends Activity {
         etipemail.save();
         Elerhetoseg e = new Elerhetoseg();
         e.setTipus(etip);
-        e.setElerhetosegadat("+36305702290");
+        e.setElerhetosegadat("+36202375472");
         e.setCeges(true);
-        e.save();
+
         Elerhetoseg eemail = new Elerhetoseg();
         eemail.setCeges(true);
         eemail.setElerhetosegadat("budaicsaba@kite.hu");
@@ -171,6 +170,10 @@ public class CrmMainActivity extends Activity {
         c.addToPartner(p);
         c.save();
         Log.i(TAG,"Data load finished");
+        e.addToContact(c);
+        e.save();
+
     }
+
 
 }

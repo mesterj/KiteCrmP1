@@ -1,20 +1,25 @@
 package com.kite.joco.kitecrmp1.db.entites;
 
+import android.util.Log;
+
 import com.kite.joco.kitecrmp1.db.CrmDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.ForeignKeyReference;
+import com.raizlabs.android.dbflow.annotation.ModelContainer;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.sql.builder.Condition;
+import com.raizlabs.android.dbflow.sql.language.Select;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
 
 /**
  * Created by Joco on 2015.05.24..
  */
-
+@ModelContainer
 @Table(databaseName = CrmDatabase.DATABASE_NAME)
-public class Elerhetoseg extends BaseModel{
+public class Elerhetoseg extends BaseModel {
 
     @Column
     @PrimaryKey(autoincrement = true)
@@ -38,6 +43,22 @@ public class Elerhetoseg extends BaseModel{
 
     @Column
     String elerhetosegadat;
+
+    // to associate Contact
+    public void addToContact(Contact c) {
+        this.contact_id = new ForeignKeyContainer<>(Contact.class);
+        this.contact_id.put(Contact$Table.ID, c.getId());
+    }
+
+    // Nem működik... Miért is tenné..
+    public Long getContactId() {
+
+        Long l = this.getId();
+        String s = new Select(Elerhetoseg$Table.CONTACT_ID_CONTACT_ID).from(Elerhetoseg.class).where(Condition.column(Elerhetoseg$Table.ID).eq(l)).querySingle().toString();
+        Long id = Long.parseLong(s);
+        Log.i("CRM:Elerhetoseg", " id is : " + id);
+        return id;
+    }
 
     @Column
     boolean ceges;
