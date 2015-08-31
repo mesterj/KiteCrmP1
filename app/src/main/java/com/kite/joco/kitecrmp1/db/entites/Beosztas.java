@@ -37,5 +37,8 @@ public class Beosztas extends BaseModel {
         this.beosztas = beosztas;
     }
 
-
+    @Override
+    public String toString() {
+        return beosztas;
+    }
 }

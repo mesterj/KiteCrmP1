@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.kite.joco.kitecrmp1.R;
+import com.kite.joco.kitecrmp1.db.entites.Beosztas;
 import com.kite.joco.kitecrmp1.db.entites.Contact;
 import com.kite.joco.kitecrmp1.db.entites.Contact$Table;
 import com.kite.joco.kitecrmp1.db.entites.Partner;
@@ -19,17 +22,29 @@ import java.util.List;
 public class NewContactActivity extends CrmLevelActivity implements PartnerSearchInterface{
 
     public static final String LOGTAG = "KITCRM:NEWCONTACT";
+    private Spinner spnContactBeosztas;
+    private ArrayAdapter<Beosztas> beosztasArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_contact);
+
+        // Ezek azért kellenek, hogy ne kérjen PIN kódot
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
         window.addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         //,setContentView(R.layout.activity_new_contact);
-    }
+
+        spnContactBeosztas = (Spinner) findViewById(R.id.spnKapcsolatBeosztas);
+
+        List<Beosztas> beosztasList = new Select().from(Beosztas.class).queryList();
+        beosztasArrayAdapter = new ArrayAdapter<Beosztas>(this,android.R.layout.simple_spinner_item,beosztasList);
+        spnContactBeosztas.setAdapter(beosztasArrayAdapter);
+
+
+     }
 
     @Override
     public void PartnerSearch(String searchparam) {

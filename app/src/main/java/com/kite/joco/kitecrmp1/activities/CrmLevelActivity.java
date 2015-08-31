@@ -61,13 +61,16 @@ public class CrmLevelActivity extends Activity {
                 finish();
                 break;
             case (R.id.new_contact):
-                // itt fogom a new contact activitytt hívni most a fragment proba van itt
-                Intent statproba = new Intent(getApplicationContext(),PartnerListActivity.class);
-                startActivity(statproba);
+                Intent contactIntent = new Intent(getApplicationContext(),NewContactActivity.class);
+                startActivity(contactIntent);
                 break;
             case (R.id.new_partner):
                 Intent partnerIntent = new Intent(getApplicationContext(),NewPartnerActivity.class);
                 startActivity(partnerIntent);
+                break;
+            case (R.id.partnerList):
+                Intent partnerlistIntent = new Intent(getApplicationContext(),PartnerListActivity.class);
+                startActivity(partnerlistIntent);
                 break;
             case (R.id.about):
                 Toast.makeText(this, "Ezt a programot Józsi csinálta", Toast.LENGTH_LONG).show();

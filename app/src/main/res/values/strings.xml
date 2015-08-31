@@ -26,4 +26,5 @@
     <string name="nocontacttext">Még nincs rögzítve kapcsolat</string>
     <string name="title_activity_contact_list">Kapcsolatok</string>
     <string name="kapcsolatokbtncaption">Kapcsolatok</string>
+    <string name="nevcaptiontext">Név :</string>
 </resources>
