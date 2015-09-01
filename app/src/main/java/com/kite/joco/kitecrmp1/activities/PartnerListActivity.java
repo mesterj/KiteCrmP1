@@ -37,6 +37,7 @@ public class PartnerListActivity extends CrmLevelActivity implements PartnerSear
         Log.d(LOGTAG," Keresés nagy betűvel : " + searchparam.toUpperCase());
         List<Partner> talaltPartnerek = new Select().from(Partner.class).where(Condition.column(Partner$Table.SEARCHNEV).like(searchparam.toUpperCase())).queryList();
 
+        // TODO Contact nev adatok alapján is kell a keresés
 
         // TODO Ezt ki lehet venni a logból
         Log.d(LOGTAG,"Végső találati lista");
