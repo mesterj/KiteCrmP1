@@ -56,8 +56,9 @@ public class NewContactActivity extends CrmLevelActivity implements PartnerSearc
         talaltContactok.addAll(talaltContactokbyVezeteknev);
 
         for (Contact c: talaltContactok){
-            talaltPartnerek.add(c.getPartner());
-            Log.d(LOGTAG,"Talált partner neve: " + c.getPartner().getNev());
+            Partner addps = c.getContactPartner();
+            talaltPartnerek.add(addps);
+            Log.d(LOGTAG,"Talált partner neve: " + addps.getNev());
         }
 
 

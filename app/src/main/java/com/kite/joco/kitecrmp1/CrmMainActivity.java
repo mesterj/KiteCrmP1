@@ -167,7 +167,7 @@ public class CrmMainActivity extends Activity {
         p.setUtca("Bem J. u. 1-3");
         p.save();
 
-        c.addToPartner(p);
+        c.setPartner_id(p.getId());
         c.save();
         Log.i(TAG,"Data load finished");
         e.addToContact(c);

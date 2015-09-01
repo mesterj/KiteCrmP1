@@ -45,7 +45,7 @@ public class Partner extends BaseModel {
     public List<Contact> getKapcsolatok() {
         if (kapcsolatok == null) {
             kapcsolatok = new Select().from(Contact.class)
-                    .where(Condition.column(Contact$Table.PARTNERFOREIGNKEYCONTAINER_PARTNER_ID).is(id))
+                    .where(Condition.column(Contact$Table.PARTNER_ID).is(id))
                     .queryList();
         }
         return kapcsolatok;

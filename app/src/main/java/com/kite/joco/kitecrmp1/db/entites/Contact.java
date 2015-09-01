@@ -1,5 +1,7 @@
 package com.kite.joco.kitecrmp1.db.entites;
 
+import android.util.Log;
+
 import com.kite.joco.kitecrmp1.db.CrmDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
@@ -47,13 +49,7 @@ public class Contact extends BaseModel{
     ForeignKeyContainer<Beosztas> beosztasForeignKeyContainer;
 
     @Column
-    @ForeignKey(
-            references = {@ForeignKeyReference(columnName = "partner_id",
-                    columnType = Long.class,
-                    foreignColumnName = "id")},
-            saveForeignKeyModel = false)
-    ForeignKeyContainer<Partner> partnerForeignKeyContainer;
-
+    long partner_id;
 
     List<Elerhetoseg> elerhetosegList;
 
@@ -67,22 +63,13 @@ public class Contact extends BaseModel{
         return elerhetosegList;
     }
 
-    // To assiciate to partner
+    /*/ To assiciate to partner
     public void addToPartner(Partner p){
         this.partnerForeignKeyContainer = new ForeignKeyContainer<>(Partner.class);
         this.partnerForeignKeyContainer.put(Partner$Table.ID,p.getId());
     }
 
-    public Partner getPartner(){
-        this.partnerForeignKeyContainer = new ForeignKeyContainer<Partner>(Partner.class);
-        return this.partnerForeignKeyContainer.toModel();
-    }
-
-    public void addToPartnerWithModel(Partner p){
-        partnerForeignKeyContainer = new ForeignKeyContainer<>(Partner.class);
-        partnerForeignKeyContainer.setModel(p);
-        partnerForeignKeyContainer.toModel();
-    }
+*/
 
     public Long getId() {
         return id;
@@ -127,6 +114,26 @@ public class Contact extends BaseModel{
 
     public void setElerhetosegList(List<Elerhetoseg> elerhetosegList) {
         this.elerhetosegList = elerhetosegList;
+    }
+
+    public long getPartner_id() {
+        return partner_id;
+    }
+
+    public void setPartner_id(long partner_id) {
+        this.partner_id = partner_id;
+    }
+
+    public Partner getContactPartner(){
+        try {
+            long keresett = this.getId();
+            Partner p = new Select().from(Partner.class).where(Condition.column(Partner$Table.ID).eq(keresett)).querySingle();
+            return p;
+        }
+        catch (Exception ex){
+            Log.e("CRMDB:CONTACT"," Nem sikerült a contact partnerét kikeresni " + ex.getMessage() );
+            return null;
+        }
     }
 }
 
