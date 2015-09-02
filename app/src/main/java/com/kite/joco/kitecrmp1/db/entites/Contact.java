@@ -38,15 +38,8 @@ public class Contact extends BaseModel{
     @Column
     String contact_kozepsonev;
 
-
-
     @Column
-    @ForeignKey(
-            references = {@ForeignKeyReference(columnName = "beosztas_id",
-                    columnType = Long.class,
-                    foreignColumnName = "id")},
-            saveForeignKeyModel = false)
-    ForeignKeyContainer<Beosztas> beosztasForeignKeyContainer;
+    long beosztas_id;
 
     @Column
     long partner_id;
@@ -132,6 +125,26 @@ public class Contact extends BaseModel{
         }
         catch (Exception ex){
             Log.e("CRMDB:CONTACT"," Nem sikerült a contact partnerét kikeresni " + ex.getMessage() );
+            return null;
+        }
+    }
+
+    public long getBeosztas_id() {
+        return beosztas_id;
+    }
+
+    public void setBeosztas_id(long beosztas_id) {
+        this.beosztas_id = beosztas_id;
+    }
+
+    public Beosztas getContactBeosztas(){
+        try {
+            long beoid = this.getBeosztas_id();
+            Beosztas b = new Select().from(Beosztas.class).where(Condition.column(Beosztas$Table.ID).eq(beoid)).querySingle();
+            return b;
+        }
+        catch (Exception ex){
+            Log.e("CDRMDB:CONTACT", " getContactBeosztas "+ ex.getLocalizedMessage());
             return null;
         }
     }
