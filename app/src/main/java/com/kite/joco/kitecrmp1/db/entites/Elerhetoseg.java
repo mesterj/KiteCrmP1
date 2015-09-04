@@ -67,7 +67,7 @@ public class Elerhetoseg extends BaseModel {
     @Column
     String elerhetosegadat;
 
-    // to associate Contact
+    // containeres megoldással adja hozzá a contactot az elérhetőséghez
     /*public void addToContact(Contact c) {
         this.contact_id = new ForeignKeyContainer<>(Contact.class);
         this.contact_id.put(Contact$Table.ID, c.getId());
