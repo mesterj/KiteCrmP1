@@ -88,7 +88,7 @@ public class PartnerRecAdapter extends RecyclerView.Adapter<PartnerRecAdapter.Pa
         try {
             List<Contact> contacts = new Select().from(Contact.class).where(Condition.column("partner_id").is(aktPartner.getId())).queryList();
             int contsize = contacts.size();
-            List<Elerhetoseg> elerhetosegList = new Select().from(Elerhetoseg.class).where(Condition.column(Elerhetoseg$Table.CONTACT_ID_CONTACT_ID).eq(contacts.get(0).getId())).queryList();
+            List<Elerhetoseg> elerhetosegList = new Select().from(Elerhetoseg.class).where(Condition.column(Elerhetoseg$Table.CONTACT_ID).eq(contacts.get(0).getId())).queryList();
             Log.d(LOGTAG," A c elerhetosegei db: " + elerhetosegList.size());
             if (contsize != 0) {
                 Log.i(LOGTAG, "Ennyi elemből áll a contact lista: " + contsize);

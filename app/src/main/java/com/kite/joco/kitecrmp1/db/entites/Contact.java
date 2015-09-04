@@ -50,7 +50,7 @@ public class Contact extends BaseModel{
     public List<Elerhetoseg> getElerhetosegList() {
         if (elerhetosegList == null) {
             elerhetosegList = new Select().from(Elerhetoseg.class)
-                    .where(Condition.column(Elerhetoseg$Table.CONTACT_ID_CONTACT_ID).is(id))
+                    .where(Condition.column(Elerhetoseg$Table.CONTACT_ID).is(id))
                     .queryList();
         }
         return elerhetosegList;
