@@ -4,15 +4,12 @@ import android.util.Log;
 
 import com.kite.joco.kitecrmp1.db.CrmDatabase;
 import com.raizlabs.android.dbflow.annotation.Column;
-import com.raizlabs.android.dbflow.annotation.ForeignKey;
-import com.raizlabs.android.dbflow.annotation.ForeignKeyReference;
 import com.raizlabs.android.dbflow.annotation.ModelContainer;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.sql.builder.Condition;
 import com.raizlabs.android.dbflow.sql.language.Select;
 import com.raizlabs.android.dbflow.structure.BaseModel;
-import com.raizlabs.android.dbflow.structure.container.ForeignKeyContainer;
 
 /**
  * Created by Joco on 2015.05.24..
@@ -25,27 +22,11 @@ public class Elerhetoseg extends BaseModel {
     @PrimaryKey(autoincrement = true)
     Long id;
 
-    public long getElerhetoseg_tipus_id() {
-        return elerhetoseg_tipus_id;
-    }
-
-    public void setElerhetoseg_tipus_id(long elerhetoseg_tipus_id) {
-        this.elerhetoseg_tipus_id = elerhetoseg_tipus_id;
-    }
-
-    public long getContact_id() {
-        return contact_id;
-    }
-
-    public void setContact_id(long contact_id) {
-        this.contact_id = contact_id;
-    }
+    @Column
+    Long eltipid;
 
     @Column
-    long elerhetoseg_tipus_id;
-
-    @Column
-    long contact_id;
+    Long contact_id;
 
     /*@Column
     @ForeignKey(
@@ -74,21 +55,21 @@ public class Elerhetoseg extends BaseModel {
     }*/
 
     // container nélkül összekapcsolja a contacttal az aktuális elérhetőséget
-    public void addToContact(Contact c){
-        this.setElerhetoseg_tipus_id(c.getId());
+    public void addToContact(Contact c) {
+        this.setContact_id(c.getId());
     }
 
     // Visszaadja ennek az elérhetőségnek a contact-ját
     public Contact getContact() {
 
-        long l = this.getId();
+        long l = this.getContact_id();
         Contact c = new Select().from(Contact.class).where(Condition.column(Elerhetoseg$Table.CONTACT_ID).eq(l)).querySingle();
         Log.i("CRM:Elerhetoseg", " contact id  : " + c.getId());
         return c;
     }
 
-    public void setTipus(Elerhetoseg_tipus etipus){
-        setElerhetoseg_tipus_id(etipus.getId());
+    public void setTipus(Elerhetoseg_tipus etipus) {
+        setEltipid(etipus.getId());
     }
 
     @Column
@@ -116,5 +97,21 @@ public class Elerhetoseg extends BaseModel {
 
     public void setCeges(boolean ceges) {
         this.ceges = ceges;
+    }
+
+    public long getContact_id() {
+        return contact_id;
+    }
+
+    public void setContact_id(long contact_id) {
+        this.contact_id = contact_id;
+    }
+
+    public Long getEltipid() {
+        return eltipid;
+    }
+
+    public void setEltipid(Long eltipid) {
+        this.eltipid = eltipid;
     }
 }
