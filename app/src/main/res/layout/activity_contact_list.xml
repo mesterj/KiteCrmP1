@@ -6,7 +6,20 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.kite.joco.kitecrmp1.activities.ContactListActivity">
 
+    <!--android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/kite_primary_light">
+        <TextView
+            android:id="@+id/tvBarText"
+            android:text="Toolbar felirat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.Toolbar-->
+
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

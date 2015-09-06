@@ -1,5 +1,9 @@
 <resources>
 
+    <!--style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"-->
+        <!-- Customize your theme here. -->
+    <!--/style-->
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
 
@@ -13,6 +17,10 @@
     <style name="CRM_Button_default_theme" parent="AppTheme">
         <item name="android:background">@drawable/mybutton</item>
         <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="ContactListTheme" parent="@android:style/Theme.Holo.Light">
+
     </style>
 
 </resources>

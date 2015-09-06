@@ -4,4 +4,8 @@
     tools:context="com.kite.joco.kitecrmp1.activities.ContactListActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <!--item android:id="@+id/btncontactsearch" android:icon="@android:drawable/ic_search_category_default"
+        android:orderInCategory="200" app:showAsAction="always"/-->
+
+
 </menu>

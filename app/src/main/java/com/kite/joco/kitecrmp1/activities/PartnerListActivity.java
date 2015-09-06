@@ -79,4 +79,15 @@ public class PartnerListActivity extends CrmLevelActivity implements PartnerSear
     public void onClick(View v){
         Log.d(LOGTAG,"Onclickje");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="orange">#FFBB33</color>
+    <color name="red">#FF4444</color>
+    <color name="blue">#33B5E5</color>
+    <color name="green">#99CC00</color>
+    <color name="orange_dark">#FF8800</color>
+    <color name="green_dark">#669900</color>
+    <color name="purple">#AA66CC</color>
+    <color name="purple_dark">#9933CC</color>
+    <color name="red_dark">#CC0000</color>
+    <color name="kite_primary">#8BC34A</color>
+    <color name="kite_primary_dark">#689F38</color>
+    <color name="kite_primary_light">#DCEDC8</color>
+    <color name="kite_accent">#009688</color>
+    <color name="kite_primary_text">#212121</color>
+    <color name="kite_secondary_text">#727272</color>
+    <color name="kite_icons">#212121</color>
+    <color name="kite_divider">#B6B6B6</color>
+</resources>
